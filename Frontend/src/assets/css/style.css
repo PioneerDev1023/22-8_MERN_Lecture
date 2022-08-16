@@ -108,7 +108,7 @@ form {
   margin-top: 30px;
 }
 .login-section {
-  /* background-image: url("../images/react.jpg");   */
+  background-image: url("../images/react.jpg");  
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
