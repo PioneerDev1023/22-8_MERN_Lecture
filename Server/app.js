@@ -51,14 +51,33 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-mongoose.connect('mongodb://localhost:27017/article_ststem')
-  .then(function (result) {
-    console.log(result);
-  })
-  .catch(function (err) {
-    console.log("Error");
-  });
-
-
+mongoose.connect('mongodb://localhost:27017/Article_system');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+ 
+db.once('open', function() {
+    console.log("Connection Successful!");
+     
+    // define Schema
+    var UserSchema = mongoose.Schema({
+      email: String,
+      password: String,
+      name: String,
+      gender: String
+    });
+ 
+    // compile schema to model
+    var User = mongoose.model('User', UserSchema, 'users');
+ 
+    // a document instance
+    var user1 = new User({ name: 'Tutor', email: 'tutor@outlook.com', password: 123123123, gender: 'female' });
+ 
+    // save model to database
+    user1.save(function (err, user) {
+      if (err) return console.error(err);
+      console.log(user.name + " saved to users collection.");
+    });
+     
+});
 
 module.exports = app;
