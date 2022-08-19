@@ -3,25 +3,32 @@ import PropTypes from 'prop-types';
 import '../../assets/css/spin.css';
 
 async function loginUser(credentials) {
-    return (await fetch('http://localhost:5000/login', {
+    return (await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(credentials)
-    })).text();
+        body: JSON.stringify(credentials),
+        mode: "cors"
+    })
+    .then(async (res)=>{
+        let data = await res.json();
+        alert(data.data);
+        return data.data;
+    }));
 }
 
 export default function LoginPage({ props, setToken }) {
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const [showspinner, setShowSpinner] = useState(false);
     const [showtext, setShowText] = useState(true);
 
     const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
+        setEmail(e.target.value);
     };
 
     const handlePassword = (e) => {
@@ -37,14 +44,13 @@ export default function LoginPage({ props, setToken }) {
         setTimeout(() => {
             setShowSpinner(false);
             setShowText(true);
-            // props.setLoading(false);
-            const res = loginUser({
-                username,
-                password
+            const data = loginUser({
+                email: email,
+                password: password
             });
-            console.log("=============", res);
-            setToken(res);
-        }, 3000);
+            console.log(data);
+            setToken(data);
+        }, 1000);
 
         // const res = await loginUser({
         //     username,

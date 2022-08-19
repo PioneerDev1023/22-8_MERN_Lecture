@@ -45,6 +45,7 @@ form .form-group:last-child button {
 }
 form .form-group label {
   margin-right: 12px;
+  font-family: cursive;
 }
 
 form .form-group button {
@@ -108,7 +109,7 @@ form {
   margin-top: 30px;
 }
 .login-section {
-  background-image: url("../images/react.jpg");  
+  /* background-image: url("../images/react.jpg");   */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

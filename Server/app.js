@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
+var formData = require('express-form-data');
+var os = require('os');
+var mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
 
 var app = express();
 
@@ -18,9 +21,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+app.use(formData.parse({ 
+  uploadDir: os.tmpdir(), 
+  autoClean: true 
+}));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+/**
+ * Server Routing configuration
+ */
+
+app.use("/auth", authRouter);
+
+/** ----------------------------------------- */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,5 +50,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+mongoose.connect('mongodb://localhost:27017/article_ststem')
+  .then(function (result) {
+    console.log(result);
+  })
+  .catch(function (err) {
+    console.log("Error");
+  });
+
+
 
 module.exports = app;

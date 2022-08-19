@@ -12,4 +12,12 @@ app.use('/login', (req, res) => {
     res.send("Okay");
 });
 
-app.listen(5000, () => console.log('API is running on http://localhost:8080/login'));
+app.listen(5000, () => console.log('API is running on http://localhost:5000/login'));
+
+// fetch('http://..login', login), {
+//     method: 'POST',
+//     headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 
+//     }
+// }
