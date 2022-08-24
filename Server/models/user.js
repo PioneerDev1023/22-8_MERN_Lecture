@@ -3,8 +3,8 @@ const { model, Schema } = requrie('mongoose');
 const UserSchema = new Schema({
     email: String,
     password: String,
-    name: String,
-    gender: String,
+    firstName: String,
+    lastName: String,
 }, {
     timestamps: ['createAt', 'updateAt']
 });

@@ -1,5 +1,4 @@
 import './assets/css/style.css';
-// import './assets/css/spin.css';
 import LoginPage from './screens/authentication/LoginPage';
 import { useState } from 'react';
 import { Router as BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -11,7 +10,7 @@ function App() {
     return (
         <div className="wrapper">
             { !token && <LoginPage setToken={setToken} /> }
-            <Dashboard />
+            {/* <Dashboard /> */}
             {/* <BrowserRouter>
                 <Routes>
                     <Route path='/dashboard' element={<Dashboard />} />

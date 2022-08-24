@@ -1,5 +1,5 @@
 .loginspinner {
-    width: 2.5em;
+  width: 2.5em;
   height: 3em;
   border: 3px solid transparent;
   border-top-color: #fc2f70;
@@ -9,12 +9,109 @@
 }
 
 @keyframes spin-stretch {
-    50% {
-      transform: rotate(360deg) scale(0.4, 0.33);
-      border-width: 8px;
-    }
-    100% {
-      transform: rotate(720deg) scale(1, 1);
-      border-width: 3px;
-    }
+  50% {
+    transform: rotate(360deg) scale(0.4, 0.33);
+    border-width: 8px;
+  }
+
+  100% {
+    transform: rotate(720deg) scale(1, 1);
+    border-width: 3px;
+  }
+}
+    
+.nav-btn {
+  background-color: #F05D61;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+  border-color: #F05D61;
+}
+
+.nav-btn:hover {
+  background-color: #ef454a;
+}
+
+.login-btn {
+  background-color: white;
+  color: #F05D61;
+  border: none;
+}
+.header-section {
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  height: 90px;
+}
+.header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  width: 176px;
+}
+
+.login-content {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  /* padding-top: 50px; */
+}
+
+.login-panel {
+  background-image: url('../images/form_bg.svg');
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-side {
+  background-image: url('../images/side_img.svg');
+  background-repeat: no-repeat;
+  
+}
+.login-side div {
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-size: cover;
+  height: 100%;
+}
+.login-section {
+  color: white;
+}
+.login-panel form {
+  width: 70%;
+}
+.login-panel form h1 {
+  font-weight: 700;
+}
+.login-panel form .form-group button {
+  background-color: white;
+  border: none;
+  color: #F05D61;
+}
+.subtitle {
+  font-weight: 600;
+}
+.login-btn:hover {
+  background-color: #ef454a;
+}
+.account-link {
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.privacy {
+  width: 70%;
+  margin: 25px auto;
+  font-size: 14px;
 }
